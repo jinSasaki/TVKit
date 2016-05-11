@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TVKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h13-Ki-t1q" customClass="Slider" customModule="TVKit">
+                                <rect key="frame" x="90" y="780" width="1740" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="S1W-jn-bhy"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="max">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="min">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ke7-mK-Ccm">
+                                <rect key="frame" x="862" y="497" width="196" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="START"/>
+                                <connections>
+                                    <action selector="tapStartButton:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="Xmb-41-Xk6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="umd-By-0NO">
+                                <rect key="frame" x="1108" y="497" width="178" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="STOP"/>
+                                <connections>
+                                    <action selector="tapStopButton:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="fSs-ip-hWz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSM-Gw-q0O">
+                                <rect key="frame" x="568" y="497" width="194" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="RESET"/>
+                                <connections>
+                                    <action selector="tapResetButton:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="djm-ec-tkH"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Indicator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mlh-3g-ztw">
+                                <rect key="frame" x="862" y="432" width="424" height="46"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pw1-fc-Nqi">
+                                <rect key="frame" x="568" y="432" width="194" height="46"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h13-Ki-t1q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="90" id="4EU-RL-Plg"/>
+                            <constraint firstItem="SSM-Gw-q0O" firstAttribute="centerY" secondItem="Ke7-mK-Ccm" secondAttribute="centerY" id="AQ0-3f-hq8"/>
+                            <constraint firstItem="umd-By-0NO" firstAttribute="centerY" secondItem="Ke7-mK-Ccm" secondAttribute="centerY" id="FJr-nK-J10"/>
+                            <constraint firstItem="Mlh-3g-ztw" firstAttribute="leading" secondItem="Ke7-mK-Ccm" secondAttribute="leading" id="GJ7-Cn-HT3"/>
+                            <constraint firstItem="pw1-fc-Nqi" firstAttribute="trailing" secondItem="SSM-Gw-q0O" secondAttribute="trailing" id="HQU-eN-8Ev"/>
+                            <constraint firstItem="Mlh-3g-ztw" firstAttribute="trailing" secondItem="umd-By-0NO" secondAttribute="trailing" id="I62-Ix-1xX"/>
+                            <constraint firstItem="pw1-fc-Nqi" firstAttribute="leading" secondItem="SSM-Gw-q0O" secondAttribute="leading" id="NCa-k1-SKA"/>
+                            <constraint firstAttribute="trailing" secondItem="h13-Ki-t1q" secondAttribute="trailing" constant="90" id="QRD-6m-vJt"/>
+                            <constraint firstItem="Ke7-mK-Ccm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Sw6-2R-Pke"/>
+                            <constraint firstItem="Ke7-mK-Ccm" firstAttribute="top" secondItem="Mlh-3g-ztw" secondAttribute="bottom" constant="19" id="Vvm-kQ-Qzz"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="h13-Ki-t1q" secondAttribute="bottom" constant="200" id="Wwe-dr-0fk"/>
+                            <constraint firstItem="umd-By-0NO" firstAttribute="leading" secondItem="Ke7-mK-Ccm" secondAttribute="trailing" constant="50" id="fp7-BZ-Jfz"/>
+                            <constraint firstItem="Ke7-mK-Ccm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wr9-Gs-uHT"/>
+                            <constraint firstItem="Ke7-mK-Ccm" firstAttribute="leading" secondItem="SSM-Gw-q0O" secondAttribute="trailing" constant="100" id="xMg-kF-TUr"/>
+                            <constraint firstItem="SSM-Gw-q0O" firstAttribute="top" secondItem="pw1-fc-Nqi" secondAttribute="bottom" constant="19" id="zx1-kq-MlJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="slider" destination="h13-Ki-t1q" id="Nhn-sm-97s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="565" y="318"/>
+        </scene>
+    </scenes>
+</document>

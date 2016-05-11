@@ -1,0 +1,6 @@
+platform :tvos, '9.2'
+use_frameworks!
+
+target 'TVKit-Example' do
+  pod 'TVKit', :path => '../'
+end
