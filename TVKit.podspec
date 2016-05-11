@@ -10,9 +10,9 @@ Pod::Spec.new do |s|
                        DESC
 
   s.homepage         = "https://github.com/jinSasaki/TVKit"
-  s.screenshots     = "https://github.com/jinSasaki/TVKit/raw/master/Assets/slider.gif"
+  s.screenshots     = "https://raw.githubusercontent.com/jinSasaki/TVKit/master/Assets/slider.png"
   s.license          = 'MIT'
-  s.author           = { "Jin Sasaki" => "sasakky_j@gmail.com" }
+  s.author           = { "Jin Sasaki" => "sasakky.j@gmail.com" }
   s.source           = { :git => "https://github.com/jinSasaki/TVKit.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/sasakky_j'
 
