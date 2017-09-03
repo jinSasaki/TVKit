@@ -1,18 +1,18 @@
 //
-//  ViewController.swift
+//  SliderViewController.swift
 //  TVKit-Example
 //
-//  Created by Jin Sasaki on 2016/05/11.
+//  Created by Jin Sasaki on 2016/06/04.
 //  Copyright © 2016年 Jin Sasaki. All rights reserved.
 //
 
 import UIKit
 import TVKit
 
-class ViewController: UIViewController {
+class SliderViewController: UIViewController {
     
     @IBOutlet weak var slider: Slider!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: SliderDelegate {
+extension SliderViewController: SliderDelegate {
     func sliderDidTap(slider: Slider) {
         print("tapped")
     }

@@ -1,6 +1,6 @@
 //
 //  Slider.swift
-//  Slider
+//  TVKit
 //
 //  Created by Jin Sasaki on 2016/05/10.
 //  Copyright © 2016年 Jin Sasaki. All rights reserved.
@@ -28,6 +28,15 @@ public extension SliderDelegate {
 public class Slider: UIView {
 
     // MARK: - Public
+    
+    
+    /**
+      Contains the receiver’s current value.
+     
+     Setting this property causes the receiver to redraw itself using the new value. To render an animated transition from the current value to the new value, you should use the setValue:animated: method instead.
+     
+     If you try to set a value that is below the minimum or above the maximum value, the minimum or maximum value is set instead. The default value of this property is 0.0.
+    */
     @IBInspectable public var value: Double = 0 {
         didSet {
             updateViews()
@@ -133,10 +142,19 @@ public class Slider: UIView {
     private weak var deceleratingTimer: NSTimer?
     private var deceleratingVelocity: CGFloat = 0
     private var distance: Double {
-        return fabs(max - min)
+        return 100 //fabs(max - min)
     }
 
     private func commonInit() {
+        print("★")
+        let b = NSBundle(forClass: self.dynamicType)
+        print(b)
+        let apath = b.pathForResource("TVKit", ofType: "bundle")
+        print(apath)
+        guard let path = apath else {
+            print("🍺")
+            return
+        }
         let bundle = NSBundle(path: NSBundle(forClass: self.dynamicType).pathForResource("TVKit", ofType: "bundle")!)
         let nib = UINib(nibName: "Slider", bundle: bundle)
         let view = nib.instantiateWithOwner(self, options: nil).first as! UIView

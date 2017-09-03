@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let b = NSBundle(forClass: self.dynamicType)
+        print(b)
+        let apath = b.pathForResource("TVKit", ofType: "bundle")
+        print(apath)
+        // 
         return true
     }
 

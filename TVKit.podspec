@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "TVKit"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "UI components for tvOS"
 
   s.description      = <<-DESC
@@ -18,9 +18,9 @@ Pod::Spec.new do |s|
 
   s.tvos.deployment_target = '9.2'
 
-  s.source_files = 'TVKit/Classes/**/*'
+  s.source_files = 'Sources/*.swift'
   s.resource_bundles = {
-    'TVKit' => ['TVKit/Assets/*.png', 'TVKit/Assets/*.xib']
+    'TVKit' => ['Sources/*.xib']
   }
   s.frameworks = 'UIKit'
 end

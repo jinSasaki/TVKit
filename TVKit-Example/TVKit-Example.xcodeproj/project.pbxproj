@@ -7,23 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09303216753489173C6E4610 /* Pods_TVKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 410415B0DF57603846E233CA /* Pods_TVKit_Example.framework */; };
+		9373E00C1D02FFE5005364E9 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373E00B1D02FFE5005364E9 /* SliderViewController.swift */; };
+		9373E00E1D02FFF1005364E9 /* QRButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373E00D1D02FFF1005364E9 /* QRButtonViewController.swift */; };
 		93DE4BCF1CE2CDC40045283C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DE4BCE1CE2CDC40045283C /* AppDelegate.swift */; };
-		93DE4BD11CE2CDC40045283C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DE4BD01CE2CDC40045283C /* ViewController.swift */; };
 		93DE4BD41CE2CDC40045283C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DE4BD21CE2CDC40045283C /* Main.storyboard */; };
 		93DE4BD61CE2CDC40045283C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DE4BD51CE2CDC40045283C /* Assets.xcassets */; };
+		9A1762B70614747C48B40B17 /* Pods_TVKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5535996B68A1E6162133A1A /* Pods_TVKit_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3C3CFD7E69A489025F3CDC53 /* Pods-TVKit-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVKit-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-TVKit-Example/Pods-TVKit-Example.release.xcconfig"; sourceTree = "<group>"; };
-		410415B0DF57603846E233CA /* Pods_TVKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		385B3B1E6BCFB588D57E571B /* Pods-TVKit-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVKit-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-TVKit-Example/Pods-TVKit-Example.release.xcconfig"; sourceTree = "<group>"; };
+		9373E00B1D02FFE5005364E9 /* SliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
+		9373E00D1D02FFF1005364E9 /* QRButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRButtonViewController.swift; sourceTree = "<group>"; };
 		93DE4BCB1CE2CDC40045283C /* TVKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TVKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DE4BCE1CE2CDC40045283C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		93DE4BD01CE2CDC40045283C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		93DE4BD31CE2CDC40045283C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93DE4BD51CE2CDC40045283C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93DE4BD71CE2CDC40045283C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C2A257860CB0875F3C0FCB50 /* Pods-TVKit-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVKit-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TVKit-Example/Pods-TVKit-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		A2065CA1F6D514C534F70A92 /* Pods-TVKit-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVKit-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TVKit-Example/Pods-TVKit-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		D5535996B68A1E6162133A1A /* Pods_TVKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,20 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09303216753489173C6E4610 /* Pods_TVKit_Example.framework in Frameworks */,
+				9A1762B70614747C48B40B17 /* Pods_TVKit_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		277E6188E5712096A798C906 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A2065CA1F6D514C534F70A92 /* Pods-TVKit-Example.debug.xcconfig */,
+				385B3B1E6BCFB588D57E571B /* Pods-TVKit-Example.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		93DE4BC21CE2CDC40045283C = {
 			isa = PBXGroup;
 			children = (
 				93DE4BCD1CE2CDC40045283C /* TVKit-Example */,
 				93DE4BCC1CE2CDC40045283C /* Products */,
-				C58D9E796ACA8322682A267F /* Pods */,
-				DBFE2AC03C199A42DD7B9538 /* Frameworks */,
+				277E6188E5712096A798C906 /* Pods */,
+				F10A013DABA5C0EA78AF207E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,7 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				93DE4BCE1CE2CDC40045283C /* AppDelegate.swift */,
-				93DE4BD01CE2CDC40045283C /* ViewController.swift */,
+				9373E00B1D02FFE5005364E9 /* SliderViewController.swift */,
+				9373E00D1D02FFF1005364E9 /* QRButtonViewController.swift */,
 				93DE4BD21CE2CDC40045283C /* Main.storyboard */,
 				93DE4BD51CE2CDC40045283C /* Assets.xcassets */,
 				93DE4BD71CE2CDC40045283C /* Info.plist */,
@@ -68,19 +80,10 @@
 			path = "TVKit-Example";
 			sourceTree = "<group>";
 		};
-		C58D9E796ACA8322682A267F /* Pods */ = {
+		F10A013DABA5C0EA78AF207E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C2A257860CB0875F3C0FCB50 /* Pods-TVKit-Example.debug.xcconfig */,
-				3C3CFD7E69A489025F3CDC53 /* Pods-TVKit-Example.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		DBFE2AC03C199A42DD7B9538 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				410415B0DF57603846E233CA /* Pods_TVKit_Example.framework */,
+				D5535996B68A1E6162133A1A /* Pods_TVKit_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -92,12 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93DE4BDA1CE2CDC40045283C /* Build configuration list for PBXNativeTarget "TVKit-Example" */;
 			buildPhases = (
-				CA4C7EB62624628309044E8C /* Check Pods Manifest.lock */,
+				4C51B72BB2D5C572894A99D3 /* 📦 Check Pods Manifest.lock */,
 				93DE4BC71CE2CDC40045283C /* Sources */,
 				93DE4BC81CE2CDC40045283C /* Frameworks */,
 				93DE4BC91CE2CDC40045283C /* Resources */,
-				2948152DD50AF9EE094D8E1F /* Embed Pods Frameworks */,
-				7235F9661DFA95DFDC2AC574 /* Copy Pods Resources */,
+				7A536CCA73E00777EC17CC9F /* 📦 Embed Pods Frameworks */,
+				8C518FD99DEB423BFEB5456B /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -154,14 +157,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2948152DD50AF9EE094D8E1F /* Embed Pods Frameworks */ = {
+		4C51B72BB2D5C572894A99D3 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7A536CCA73E00777EC17CC9F /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,34 +187,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TVKit-Example/Pods-TVKit-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7235F9661DFA95DFDC2AC574 /* Copy Pods Resources */ = {
+		8C518FD99DEB423BFEB5456B /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TVKit-Example/Pods-TVKit-Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CA4C7EB62624628309044E8C /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -206,7 +209,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93DE4BD11CE2CDC40045283C /* ViewController.swift in Sources */,
+				9373E00C1D02FFE5005364E9 /* SliderViewController.swift in Sources */,
+				9373E00E1D02FFF1005364E9 /* QRButtonViewController.swift in Sources */,
 				93DE4BCF1CE2CDC40045283C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,12 +314,14 @@
 		};
 		93DE4BDB1CE2CDC40045283C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2A257860CB0875F3C0FCB50 /* Pods-TVKit-Example.debug.xcconfig */;
+			baseConfigurationReference = A2065CA1F6D514C534F70A92 /* Pods-TVKit-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "TVKit-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.sasakky.TVKit-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -323,10 +329,11 @@
 		};
 		93DE4BDC1CE2CDC40045283C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C3CFD7E69A489025F3CDC53 /* Pods-TVKit-Example.release.xcconfig */;
+			baseConfigurationReference = 385B3B1E6BCFB588D57E571B /* Pods-TVKit-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "TVKit-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.sasakky.TVKit-Example";
