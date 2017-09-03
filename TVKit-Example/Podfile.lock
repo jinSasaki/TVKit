@@ -1,5 +1,5 @@
 PODS:
-  - TVKit (0.1.1)
+  - TVKit (0.2.0)
 
 DEPENDENCIES:
   - TVKit (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  TVKit: 78f10ee4750c42ca3dde6c0b90ab973fd8ecffc7
+  TVKit: ca4cf92d4f2ec1878bf8f0d7a918bb069b08a8b7
 
 PODFILE CHECKSUM: 7e86cdd6745466fc5fea646fcc5de713280acb8f
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.2.1

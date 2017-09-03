@@ -95,12 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93DE4BDA1CE2CDC40045283C /* Build configuration list for PBXNativeTarget "TVKit-Example" */;
 			buildPhases = (
-				4C51B72BB2D5C572894A99D3 /* 📦 Check Pods Manifest.lock */,
+				4C51B72BB2D5C572894A99D3 /* [CP] Check Pods Manifest.lock */,
 				93DE4BC71CE2CDC40045283C /* Sources */,
 				93DE4BC81CE2CDC40045283C /* Frameworks */,
 				93DE4BC91CE2CDC40045283C /* Resources */,
-				7A536CCA73E00777EC17CC9F /* 📦 Embed Pods Frameworks */,
-				8C518FD99DEB423BFEB5456B /* 📦 Copy Pods Resources */,
+				7A536CCA73E00777EC17CC9F /* [CP] Embed Pods Frameworks */,
+				8C518FD99DEB423BFEB5456B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -157,29 +157,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4C51B72BB2D5C572894A99D3 /* 📦 Check Pods Manifest.lock */ = {
+		4C51B72BB2D5C572894A99D3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		7A536CCA73E00777EC17CC9F /* 📦 Embed Pods Frameworks */ = {
+		7A536CCA73E00777EC17CC9F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,14 +187,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TVKit-Example/Pods-TVKit-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8C518FD99DEB423BFEB5456B /* 📦 Copy Pods Resources */ = {
+		8C518FD99DEB423BFEB5456B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +324,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.sasakky.TVKit-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -338,6 +339,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.sasakky.TVKit-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

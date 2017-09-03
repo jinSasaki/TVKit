@@ -30,12 +30,12 @@ public class QRButton: UIButton {
         let size = max(frame.width, frame.height)
         let qrImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: size, height: size))
         qrImageView.center = CGPoint(x: bounds.midX, y: bounds.midY)
-        qrImageView.image = qrCodeImageWithCode(code)
-        self.insertSubview(qrImageView, atIndex: 0)
+        qrImageView.image = qrCodeImage(code: code)
+        self.insertSubview(qrImageView, at: 0)
         
         if animated {
             qrImageView.alpha = 0
-            UIView.animateWithDuration(0.2) {
+            UIView.animate(withDuration: 0.2) {
                 qrImageView.alpha = 1
             }
         }
@@ -47,11 +47,11 @@ public class QRButton: UIButton {
         self.qrImageView = nil
     }
     
-    private func qrCodeImageWithCode(code: String) -> UIImage? {
+    private func qrCodeImage(code: String) -> UIImage? {
         if code.characters.count == 0 { return nil }
         
-        let data = code.dataUsingEncoding(NSUTF8StringEncoding)
-        if data?.length == 0 { return nil }
+        let data = code.data(using: .utf8)
+        if data?.count == 0 { return nil }
         
         let filter = CIFilter(name: "CIQRCodeGenerator")
         filter?.setDefaults()
@@ -60,9 +60,9 @@ public class QRButton: UIButton {
         
         guard let outputImage = filter?.outputImage else { return nil }
         let context = CIContext(options: nil)
-        let cgImage = context.createCGImage(outputImage, fromRect: outputImage.extent)
+        guard let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else { return nil }
         
-        let image = UIImage(CGImage: cgImage, scale: 1, orientation: .Up)
+        let image = UIImage(cgImage: cgImage, scale: 1, orientation: .up)
         
         // Resize without interpolating
         let rate: CGFloat = 6
@@ -70,11 +70,11 @@ public class QRButton: UIButton {
         let height = image.size.height * rate
         
         var resized: UIImage? = nil
-        UIGraphicsBeginImageContext(CGSizeMake(width, height));
+        UIGraphicsBeginImageContext(CGSize(width: width, height: height));
         let graphicContext = UIGraphicsGetCurrentContext()
         
-        CGContextSetInterpolationQuality(graphicContext, .None);
-        image.drawInRect(CGRect(x: 0, y: 0, width: width, height: height))
+        graphicContext?.interpolationQuality = .none
+        image.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
         resized = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         

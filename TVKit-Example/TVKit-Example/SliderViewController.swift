@@ -18,22 +18,22 @@ class SliderViewController: UIViewController {
         
         slider.delegate = self
         slider.max = 60 * 4
-        slider.leftLabel.hidden = true
+        slider.leftLabel.isHidden = true
     }
     
-    @IBAction func tapResetButton(sender: AnyObject) {
-        slider.setValue(0, animated: true)
+    @IBAction func tapResetButton(_ sender: AnyObject) {
+        slider.set(value: 0, animated: true)
     }
     
-    @IBAction func tapStartButton(sender: AnyObject) {
+    @IBAction func tapStartButton(_ sender: AnyObject) {
         slider.indicator.startAnimating()
     }
     
-    @IBAction func tapStopButton(sender: AnyObject) {
+    @IBAction func tapStopButton(_ sender: AnyObject) {
         slider.indicator.stopAnimating()
     }
     
-    private func formatForTime(time: Double) -> String {
+    private func format(forTime time: Double) -> String {
         let sign = time < 0 ? -1.0 : 1.0
         let minutes = Int(time * sign) / 60
         let seconds = Int(time * sign) % 60
@@ -46,11 +46,11 @@ extension SliderViewController: SliderDelegate {
         print("tapped")
     }
     
-    func slider(slider: Slider, textWithValue value: Double) -> String {
-        return formatForTime(value)
+    func slider(_ slider: Slider, textWithValue value: Double) -> String {
+        return format(forTime: value)
     }
     
-    func slider(slider: Slider, didChangeValue value: Double) {
-        slider.rightLabel.text = formatForTime(value - slider.max)
+    func slider(_ slider: Slider, didChangeValue value: Double) {
+        slider.rightLabel.text = format(forTime: value - slider.max)
     }
 }
