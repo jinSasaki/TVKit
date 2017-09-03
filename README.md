@@ -19,10 +19,9 @@ pod 'TVKit'
 ```
 
 ### Carthage
-// Coming soon
-
-### Swift Package Manager
-// Coming soon
+```Cartfile
+github "jinSasaki/TVKit"
+```
 
 ## Components
 ### Slider
@@ -54,16 +53,16 @@ Implement `SliderDelegate` if you want to receive event from Slider.
 ```swift
 // slider.delegate = self
 extension ViewController: SliderDelegate {
-  func slider(slider: Slider, textWithValue value: Double) -> String {
+  func slider(_ slider: Slider, textWithValue value: Double) -> String {
       // Customize text on the seeker view with value.
       return "\(Int(value))"
   }
 
-  func sliderDidTap(slider: Slider) {
+  func sliderDidTap(_ slider: Slider) {
     // Do something
   }
 
-  func slider(slider: Slider, didChangeValue value: Double) {
+  func slider(_ slider: Slider, didChangeValue value: Double) {
     // Do something
   }
 }
@@ -72,7 +71,8 @@ extension ViewController: SliderDelegate {
 ## Requirements
 
 - tvOS 9.2+
-- Xcode 7
+- Xcode 9
+- Swift 4
 
 ## TODO
 - Components

@@ -1,13 +1,78 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="WLu-6b-Mni">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="VHs-a7-rUK">
+            <objects>
+                <navigationController id="WLu-6b-Mni" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dOs-5f-ZhJ">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="145"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Kp8-kJ-QZO" kind="relationship" relationship="rootViewController" id="qC1-O7-HX5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eKM-ce-PoR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2897" y="262"/>
+        </scene>
         <!--View Controller-->
+        <scene sceneID="0ZK-kh-UIc">
+            <objects>
+                <viewController id="Kp8-kJ-QZO" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jbo-Ai-oN1"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Zo-dH-FXT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iuc-IV-stT">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ims-h3-ags">
+                                <rect key="frame" x="810" y="340" width="300" height="400"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3Z-7m-ctk">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="86"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Slider"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="pcv-0H-sft"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pr8-sO-AyO">
+                                        <rect key="frame" x="0.0" y="314" width="300" height="86"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="QRButton"/>
+                                        <connections>
+                                            <segue destination="EuS-XD-Hkr" kind="show" id="io6-2J-Beb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="0oc-uN-Yjd"/>
+                                    <constraint firstAttribute="height" constant="400" id="NhS-sX-vn3"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Ims-h3-ags" firstAttribute="centerX" secondItem="iuc-IV-stT" secondAttribute="centerX" id="83v-k4-U2R"/>
+                            <constraint firstItem="Ims-h3-ags" firstAttribute="centerY" secondItem="iuc-IV-stT" secondAttribute="centerY" id="e71-Mq-7vi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ik1-CG-lei"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w8O-DF-iP8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-829" y="255"/>
+        </scene>
+        <!--Slider View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TVKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SliderViewController" customModule="TVKit_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,24 +81,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h13-Ki-t1q" customClass="Slider" customModule="TVKit">
-                                <rect key="frame" x="90" y="780" width="1740" height="100"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="S1W-jn-bhy"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="max">
-                                        <real key="value" value="100"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="min">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ke7-mK-Ccm">
                                 <rect key="frame" x="862" y="497" width="196" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
@@ -70,33 +117,93 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyA-7g-DKg" customClass="Slider" customModule="TVKit">
+                                <rect key="frame" x="90" y="900" width="1740" height="120"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="p9o-h9-0ne"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="h13-Ki-t1q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="90" id="4EU-RL-Plg"/>
                             <constraint firstItem="SSM-Gw-q0O" firstAttribute="centerY" secondItem="Ke7-mK-Ccm" secondAttribute="centerY" id="AQ0-3f-hq8"/>
                             <constraint firstItem="umd-By-0NO" firstAttribute="centerY" secondItem="Ke7-mK-Ccm" secondAttribute="centerY" id="FJr-nK-J10"/>
                             <constraint firstItem="Mlh-3g-ztw" firstAttribute="leading" secondItem="Ke7-mK-Ccm" secondAttribute="leading" id="GJ7-Cn-HT3"/>
                             <constraint firstItem="pw1-fc-Nqi" firstAttribute="trailing" secondItem="SSM-Gw-q0O" secondAttribute="trailing" id="HQU-eN-8Ev"/>
                             <constraint firstItem="Mlh-3g-ztw" firstAttribute="trailing" secondItem="umd-By-0NO" secondAttribute="trailing" id="I62-Ix-1xX"/>
                             <constraint firstItem="pw1-fc-Nqi" firstAttribute="leading" secondItem="SSM-Gw-q0O" secondAttribute="leading" id="NCa-k1-SKA"/>
-                            <constraint firstAttribute="trailing" secondItem="h13-Ki-t1q" secondAttribute="trailing" constant="90" id="QRD-6m-vJt"/>
                             <constraint firstItem="Ke7-mK-Ccm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Sw6-2R-Pke"/>
                             <constraint firstItem="Ke7-mK-Ccm" firstAttribute="top" secondItem="Mlh-3g-ztw" secondAttribute="bottom" constant="19" id="Vvm-kQ-Qzz"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="h13-Ki-t1q" secondAttribute="bottom" constant="200" id="Wwe-dr-0fk"/>
+                            <constraint firstAttribute="trailing" secondItem="hyA-7g-DKg" secondAttribute="trailing" constant="90" id="bqa-17-iEB"/>
+                            <constraint firstItem="hyA-7g-DKg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="90" id="c9z-Pg-f3u"/>
                             <constraint firstItem="umd-By-0NO" firstAttribute="leading" secondItem="Ke7-mK-Ccm" secondAttribute="trailing" constant="50" id="fp7-BZ-Jfz"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hyA-7g-DKg" secondAttribute="bottom" constant="60" id="rrq-ru-KEu"/>
                             <constraint firstItem="Ke7-mK-Ccm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wr9-Gs-uHT"/>
                             <constraint firstItem="Ke7-mK-Ccm" firstAttribute="leading" secondItem="SSM-Gw-q0O" secondAttribute="trailing" constant="100" id="xMg-kF-TUr"/>
                             <constraint firstItem="SSM-Gw-q0O" firstAttribute="top" secondItem="pw1-fc-Nqi" secondAttribute="bottom" constant="19" id="zx1-kq-MlJ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="slider" destination="h13-Ki-t1q" id="Nhn-sm-97s"/>
+                        <outlet property="slider" destination="hyA-7g-DKg" id="F3R-vb-yMm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="565" y="318"/>
+            <point key="canvasLocation" x="1297" y="-246"/>
+        </scene>
+        <!--Button View Controller-->
+        <scene sceneID="5pl-Jz-uQI">
+            <objects>
+                <viewController id="EuS-XD-Hkr" customClass="QRButtonViewController" customModule="TVKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Aeb-Cf-fYh"/>
+                        <viewControllerLayoutGuide type="bottom" id="pWa-46-C5S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n3y-5j-TpI">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9rI-Rs-4eu">
+                                <rect key="frame" x="810" y="340" width="300" height="400"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEj-EO-Hd9" customClass="QRButton" customModule="TVKit">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="86"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="text"/>
+                                        <connections>
+                                            <action selector="didTapTextButton:" destination="EuS-XD-Hkr" eventType="primaryActionTriggered" id="Imj-6c-Ljk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1iz-h3-uz2" customClass="QRButton" customModule="TVKit">
+                                        <rect key="frame" x="0.0" y="314" width="300" height="86"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="url"/>
+                                        <connections>
+                                            <action selector="didTapURLButton:" destination="EuS-XD-Hkr" eventType="primaryActionTriggered" id="Mbu-9G-M6G"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="Dzv-r2-Fgj"/>
+                                    <constraint firstAttribute="width" constant="300" id="hH4-mt-oxg"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="9rI-Rs-4eu" firstAttribute="centerX" secondItem="n3y-5j-TpI" secondAttribute="centerX" id="OIJ-pY-LLk"/>
+                            <constraint firstItem="9rI-Rs-4eu" firstAttribute="centerY" secondItem="n3y-5j-TpI" secondAttribute="centerY" id="f2r-Dq-1a7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="KQQ-hD-rcS"/>
+                    <connections>
+                        <outlet property="textButton" destination="VEj-EO-Hd9" id="Zet-Ok-tnY"/>
+                        <outlet property="urlButton" destination="1iz-h3-uz2" id="T0h-40-v42"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rk7-cA-Ttj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1290" y="1185"/>
         </scene>
     </scenes>
 </document>

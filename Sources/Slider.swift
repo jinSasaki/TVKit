@@ -1,6 +1,6 @@
 //
 //  Slider.swift
-//  Slider
+//  TVKit
 //
 //  Created by Jin Sasaki on 2016/05/10.
 //  Copyright © 2016年 Jin Sasaki. All rights reserved.
@@ -9,25 +9,34 @@
 import UIKit
 
 public protocol SliderDelegate: class {
-    func slider(slider: Slider, textWithValue value: Double) -> String
+    func slider(_ slider: Slider, textWithValue value: Double) -> String
 
-    func sliderDidTap(slider: Slider)
-    func slider(slider: Slider, didChangeValue value: Double)
-    func slider(slider: Slider, didUpdateFocusInContext context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+    func sliderDidTap(_ slider: Slider)
+    func slider(_ slider: Slider, didChangeValue value: Double)
+    func slider(_ slider: Slider, didUpdateFocusInContext context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
 }
 
 public extension SliderDelegate {
-    func slider(slider: Slider, textWithValue value: Double) -> String { return "\(Int(value))" }
+    func slider(_ slider: Slider, textWithValue value: Double) -> String { return "\(Int(value))" }
 
-    func sliderDidTap(slider: Slider) {}
-    func slider(slider: Slider, didChangeValue value: Double) {}
-    func slider(slider: Slider, didUpdateFocusInContext context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {}
+    func sliderDidTap(_ slider: Slider) {}
+    func slider(_ slider: Slider, didChangeValue value: Double) {}
+    func slider(_ slider: Slider, didUpdateFocusInContext context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {}
 }
 
 @IBDesignable
 public class Slider: UIView {
 
     // MARK: - Public
+    
+    
+    /**
+      Contains the receiver’s current value.
+     
+     Setting this property causes the receiver to redraw itself using the new value. To render an animated transition from the current value to the new value, you should use the setValue:animated: method instead.
+     
+     If you try to set a value that is below the minimum or above the maximum value, the minimum or maximum value is set instead. The default value of this property is 0.0.
+    */
     @IBInspectable public var value: Double = 0 {
         didSet {
             updateViews()
@@ -60,7 +69,11 @@ public class Slider: UIView {
     public var decelerationRate: CGFloat = 0.92
     public var decelerationMaxVelocity: CGFloat = 1000
 
-    public func setValue(value: Double, animated: Bool) {
+    public override var canBecomeFocused: Bool {
+        return true
+    }
+    
+    public func set(value: Double, animated: Bool) {
         stopDeceleratingTimer()
         if distance == 0 {
             self.value = value
@@ -69,7 +82,7 @@ public class Slider: UIView {
         let duration = fabs(self.value - value) / distance * animationSpeed
         self.value = value
         if animated {
-            UIView.animateWithDuration(duration, animations: {
+            UIView.animate(withDuration: duration, animations: {
                 self.setNeedsLayout()
                 self.layoutIfNeeded()
             })
@@ -95,28 +108,24 @@ public class Slider: UIView {
         layoutIfNeeded()
         updateViews()
     }
-
-    public override func canBecomeFocused() -> Bool {
-        return true
-    }
-
-    public override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
-        super.didUpdateFocusInContext(context, withAnimationCoordinator: coordinator)
+    
+    public override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        super.didUpdateFocus(in: context, with: coordinator)
 
         if context.nextFocusedView == self {
             coordinator.addCoordinatedAnimations({ () -> Void in
-                self.seekerView.transform = CGAffineTransformMakeTranslation(0, -12)
-                self.seekerLabelBackgroundInnerView.backgroundColor = UIColor.whiteColor()
-                self.seekerLabel.textColor = UIColor.blackColor()
+                self.seekerView.transform = CGAffineTransform(translationX: 0, y: -12)
+                self.seekerLabelBackgroundInnerView.backgroundColor = .white
+                self.seekerLabel.textColor = .black
                 self.seekerLabelBackgroundView.layer.shadowOpacity = 0.5
                 self.seekLineView.layer.shadowOpacity = 0.5
                 }, completion: nil)
 
         } else if context.previouslyFocusedView == self {
             coordinator.addCoordinatedAnimations({ () -> Void in
-                self.seekerView.transform = CGAffineTransformIdentity
-                self.seekerLabelBackgroundInnerView.backgroundColor = UIColor.lightGrayColor()
-                self.seekerLabel.textColor = UIColor.whiteColor()
+                self.seekerView.transform = .identity
+                self.seekerLabelBackgroundInnerView.backgroundColor = .lightGray
+                self.seekerLabel.textColor = .white
                 self.seekerLabelBackgroundView.layer.shadowOpacity = 0
                 self.seekLineView.layer.shadowOpacity = 0
                 }, completion: nil)
@@ -130,27 +139,30 @@ public class Slider: UIView {
     @IBOutlet private(set) weak var seekerLabelBackgroundInnerView: UIView!
 
     private var seekerViewLeadingConstraintConstant: CGFloat = 0
-    private weak var deceleratingTimer: NSTimer?
+    private weak var deceleratingTimer: Timer?
     private var deceleratingVelocity: CGFloat = 0
     private var distance: Double {
-        return fabs(max - min)
+        return 100 //fabs(max - min)
     }
 
     private func commonInit() {
-        let bundle = NSBundle(path: NSBundle(forClass: self.dynamicType).pathForResource("TVKit", ofType: "bundle")!)
+        let bundle = Bundle(path: Bundle(for: type(of: self)).path(forResource: "TVKit", ofType: "bundle")!)
         let nib = UINib(nibName: "Slider", bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil).first as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
         addSubview(view)
 
         view.translatesAutoresizingMaskIntoConstraints = false
         let bindings = ["view": view]
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[view]|",
-            options:NSLayoutFormatOptions(rawValue: 0),
-            metrics:nil,
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|[view]|",
+            options: .init(rawValue: 0),
+            metrics: nil,
             views: bindings))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[view]|",
-            options:NSLayoutFormatOptions(rawValue: 0),
-            metrics:nil,
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|[view]|",
+            options: .init(rawValue: 0),
+            metrics: nil,
             views: bindings))
 
         barView.layer.cornerRadius = 6
@@ -169,46 +181,46 @@ public class Slider: UIView {
         leftLabel.text = "\(min)"
         rightLabel.text = "\(max)"
 
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(panGestureRecognizer:)))
         panGesture.delegate = self
         addGestureRecognizer(panGesture)
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(_:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(tapGestureRecognizer:)))
         addGestureRecognizer(tapGesture)
     }
 
-    dynamic private func handlePanGesture(panGestureRecognizer: UIPanGestureRecognizer) {
-        let translation = panGestureRecognizer.translationInView(self)
-        let velocity = panGestureRecognizer.velocityInView(self)
+    @objc private func handlePanGesture(panGestureRecognizer: UIPanGestureRecognizer) {
+        let translation = panGestureRecognizer.translation(in: self)
+        let velocity = panGestureRecognizer.velocity(in: self)
         switch panGestureRecognizer.state {
-        case .Began:
+        case .began:
             stopDeceleratingTimer()
             seekerViewLeadingConstraintConstant = seekerViewLeadingConstraint.constant
-        case .Changed:
+        case .changed:
             let leading = seekerViewLeadingConstraintConstant + translation.x / 5
-            setValueWithPercentage(Double(leading / barView.frame.width))
-        case .Ended, .Cancelled:
+            set(percentage: Double(leading / barView.frame.width))
+        case .ended, .cancelled:
             seekerViewLeadingConstraintConstant = seekerViewLeadingConstraint.constant
 
             let direction: CGFloat = velocity.x > 0 ? 1 : -1
             deceleratingVelocity = fabs(velocity.x) > decelerationMaxVelocity ? decelerationMaxVelocity * direction : velocity.x
-            deceleratingTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(handleDeceleratingTimer(_:)), userInfo: nil, repeats: true)
+            deceleratingTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(handleDeceleratingTimer(timer:)), userInfo: nil, repeats: true)
         default:
             break
         }
     }
 
-    dynamic private func handleTapGesture(tapGestureRecognizer: UITapGestureRecognizer) {
+    @objc private func handleTapGesture(tapGestureRecognizer: UITapGestureRecognizer) {
         stopDeceleratingTimer()
         delegate?.sliderDidTap(self)
     }
 
-    dynamic private func handleDeceleratingTimer(timer: NSTimer) {
+    @objc private func handleDeceleratingTimer(timer: Timer) {
         let leading = seekerViewLeadingConstraintConstant + deceleratingVelocity * 0.01
-        setValueWithPercentage(Double(leading / barView.frame.width))
+        set(percentage: Double(leading / barView.frame.width))
         seekerViewLeadingConstraintConstant = seekerViewLeadingConstraint.constant
 
         deceleratingVelocity *= decelerationRate
-        if !focused || fabs(deceleratingVelocity) < 1 {
+        if !isFocused || fabs(deceleratingVelocity) < 1 {
             stopDeceleratingTimer()
         }
     }
@@ -219,7 +231,7 @@ public class Slider: UIView {
         deceleratingVelocity = 0
     }
 
-    private func setValueWithPercentage(percentage: Double) {
+    private func set(percentage: Double) {
         self.value = distance * Double(percentage > 1 ? 1 : (percentage < 0 ? 0 : percentage)) + min
     }
 
@@ -232,17 +244,17 @@ public class Slider: UIView {
 
 
 extension Slider: UIGestureRecognizerDelegate {
-    public override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+    public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
-            let translation = panGestureRecognizer.translationInView(self)
+            let translation = panGestureRecognizer.translation(in: self)
             if fabs(translation.x) > fabs(translation.y) {
-                return focused
+                return isFocused
             }
         }
         return false
     }
 
-    public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
 }
